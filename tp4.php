@@ -75,9 +75,9 @@ $numPar = [];
 function numerosAleatorios($cant, $min, $max)
 {
     $nums = [];
-    for($i = 0; $i < $cant; $i++){
+    for ($i = 0; $i < $cant; $i++) {
         $numero = rand($min, $max);
-        $nums []= $numero;
+        $nums[] = $numero;
     }
     return $nums;
 };
@@ -87,30 +87,69 @@ foreach ($numeros as $num) {
         $numPar[] = $num;
     };
 }
-echo "Números: ".implode(", ", $numeros);
+echo "Números: " . implode(", ", $numeros);
 echo "<br>";
-echo "Números pares: ".implode(", ", $numPar);
+echo "Números pares: " . implode(", ", $numPar);
 echo "<br>";
-echo "Número mayor: ".max($numeros). "<br>";
-echo "Número menor: ".min($numeros). "<br>";
+echo "Número mayor: " . max($numeros) . "<br>";
+echo "Número menor: " . min($numeros) . "<br>";
 ?>
 <br>
 <br>
 
 <?php
 //Ejercicio 5
-function factorial($num){
-    if ($num <= 1){
+function factorial($num)
+{
+    if ($num <= 1) {
         return 1;
     }
-    return $num * factorial($num-1);
+    return $num * factorial($num - 1);
 };
-echo "Factorial de 5: ".factorial(5)."<br>";
-echo "Factorial de 7: ".factorial(7)."<br>"
+echo "Factorial de 5: " . factorial(5) . "<br>";
+echo "Factorial de 7: " . factorial(7) . "<br>"
 ?>
 
 <br>
 <br>
 
 <form action="tabla.php" method="post"> Ingrese un numero: <input
-type="text" name="tabla"> <input type="submit" value="Enviar"> </form>
+        type="text" name="tabla"> <input type="submit" value="Enviar"> </form>
+
+<br>
+<br>
+
+<?php
+$email;
+function validarEmail($email)
+{
+    if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+$emails = [
+    "usuario1@gmail.com",
+    "usuario2@gmail.com",
+    "usuario3gmail.com@@",
+    "usuario4@gmail,com",
+    "usuario5@gmail.com",
+
+];
+
+foreach ($emails as $mail) {
+    if (validarEmail($mail)) {
+        echo "El email $mail es válido <br>";
+    } else {
+        echo "El email $mail no es válido <br>";
+    }
+}
+?>
+<br>
+<br>
+
+<form action="temperatura.php" method="post"> Ingrese la temperatura en Celcius: <input
+        type="text" name="temperatura"> <input type="submit" value="Enviar"> </form>
+
+        
