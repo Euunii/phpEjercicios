@@ -1,4 +1,5 @@
-<?php $frase = $_POST["frase"];
+<?php 
+$frase = $_POST["frase"];
 
 $cantPalabras = str_word_count($frase);
 $letras = str_replace(" ", "", $frase); 
