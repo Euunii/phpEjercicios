@@ -65,18 +65,24 @@ for ($i = 0; $i < 4; $i++){
         for($j = 0; $j < 4; $j++){
                 $nums = mt_rand(1,50);
                 $matriz[$i][$j] = $nums;
-                $sum += $nums;
+                $suma += $nums;
         }
 }
-echo "Matriz: ";
+echo "Matriz: <br>";
+
 for ($i = 0; $i < 4; $i++){
         for($j = 0; $j < 4; $j++){
-                echo str_pad($matriz[$i][$j], 4, "", STR_PAD_LEFT);
+                echo str_pad($matriz[$i][$j], 4, " ", STR_PAD_LEFT);
         }
-        echo "\n";
+        echo "<br>";
         }
 
- echo "\n La suma total es: $sum \n";
+ echo "<br> La suma total es: $suma <br>";
 
 
 ?>
+<br>
+<br>
+
+<form action="frase.php" method="post"> Ingrese una frase: <input
+        type="text" name="frase"> <input type="submit" value="Enviar"> </form>
