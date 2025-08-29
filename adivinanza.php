@@ -6,7 +6,7 @@ if (!isset($_SESSION['num'])) {
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['adivinanza'])) {
     $adivinanza = $_POST['adivinanza'];
     $num = $_SESSION['num'];
-    if ($adivinanza === $num) {
+    if ($adivinanza == $num) {
         echo "¡Felicidades, haz adivinado el número $num!";
         session_destroy();
     } elseif ($adivinanza < $num) {
@@ -15,3 +15,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['adivinanza'])) {
         echo "EL número es MENOR al seleccionado, intentelo de nuevo";
     }
 }
+?>

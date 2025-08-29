@@ -62,27 +62,28 @@ echo esPalindromo("Calcular una suma") ? "Es palindromo<br>" : "No es palindromo
 <?php
 $matriz = [];
 $suma = 0;
-for ($i = 0; $i < 4; $i++) {
-        for ($j = 0; $j < 4; $j++) {
-                $nums = mt_rand(1, 50);
-                $matriz[$i][$j] = $nums;
-                $suma += $nums;
-        }
-}
-echo "Matriz: <br>";
-echo "<table border = '1'>";
 
 for ($i = 0; $i < 4; $i++) {
-        for ($j = 0; $j < 4; $j++) {
-                echo str_pad($matriz[$i][$j], 4, " ", STR_PAD_LEFT);
-        }
-        echo "<br>";
+    for ($j = 0; $j < 4; $j++) {
+        $matriz[$i][$j] = mt_rand(1, 50);
+        $suma += $matriz[$i][$j];
+    }
 }
-echo "<tr>";
-echo "<br> La suma total es: $suma <br>";
 
-
+echo "<table border='1' cellpadding='5' cellspacing='0'>";
+for ($i = 0; $i < 4; $i++) {
+    echo "<tr>";
+    for ($j = 0; $j < 4; $j++) {
+        echo "<td align='center'>" . str_pad($matriz[$i][$j], 2, " ", STR_PAD_LEFT) . "</td>";
+    }
+    echo "</tr>";
+    
+}
+echo "Matriz 4x4: ";
+echo "</table>";
+echo "<br>Suma total: $suma";
 ?>
+
 <br>
 <br>
 
@@ -135,7 +136,49 @@ echo "contraseña de 8 caracteres: " . generarPassword(8) . "<br>";
 for ($i = 0; $i < 10; $i++) {
     $numeros[] = rand(1, 100);
 };
-echo " Array antes de ordenar: $numeros";
-//terminar punto 9
+
+// Mostrar (antes)
+echo "Array antes de ordenar: " . implode(", ", $numeros) . "<br>";
+
+// Ordenamiento manual
+for ($i = 0; $i < count($numeros); $i++) {
+    for ($j = $i + 1; $j < count($numeros); $j++) {
+        if ($numeros[$i] > $numeros[$j]) {
+            // intercambia los valores
+            $num = $numeros[$i];
+            $numeros[$i] = $numeros[$j];
+            $numeros[$j] = $num;
+        }
+    }
+}
+
+// Mostrar
+echo "Array después de ordenar: " . implode(", ", $numeros);
 ?>
 
+<br>
+<br>
+
+<?php
+$frase = "Hola mundo PHP";
+echo "Frase: $frase<br>";
+
+// Quitar todo excepto letras y convertir a minúsculas
+$texto_limpio = preg_replace('/[^a-záéíóúüñ]/i', '', strtolower($frase));
+$total = strlen($texto_limpio);
+
+$v = 0;
+$vocales = "aeiouáéíóúü";
+
+// Contar vocales
+for ($i = 0; $i < $total; $i++) {
+    if (strpos($vocales, $texto_limpio[$i]) !== false) {
+        $v++;
+    }
+}
+
+$c = $total - $v;
+
+echo "Vocales: $v (" . round(($v/$total)*100, 2) . "%)<br>";
+echo "Consonantes: $c (" . round(($c/$total)*100, 2) . "%)<br>";
+?>
