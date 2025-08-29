@@ -58,7 +58,10 @@ echo "Promedio anual: " . round($promedio, 1) . "°C";
 <br>
 <?php
 //hacer punto 3
+
 ?>
+<form action="conversor.php" method="post"> Ingrese un numero a convertir: <input
+        type="text" name="conversor"> <input type="submit" value="Enviar"> </form>
 
 <form action="generarTabla.php" method="post"> Ingrese un numero: <input
         type="text" name="numero"> <input type="submit" value="Enviar"> </form>
